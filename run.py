@@ -5,7 +5,7 @@
 # I realise was the wrong one. I copied it here, read more about it in the README file
 
 import random
-
+#while True:
 def main():
     print("Select the board size:")
     print("1. small: 3x3")
@@ -23,10 +23,10 @@ def main():
         print('|'.join(row))
         print('-' * (len(row) * 2 - 1))
 
-    for i in range(rows):
-        for j in range(columns):
-            row_input = i
-            col_input = j
+    moves = 0
+    while moves < rows * columns:
+            row_input = random.randint(0, rows -1)
+            col_input = random.randint(0, columns -1)
 
             if board[row_input][col_input] == ' ':
                 board[row_input][col_input] = 'X'
@@ -38,17 +38,22 @@ def main():
                     print("Nobody wins")
                 elif checkld == 'X' or checkrd == 'X':
                     print("Player wins")
+                    break
                 elif checkld == 'O' or checkrd == 'O':
                     print("Computer wins")
-
+                    break
                 if check_rows_and_col(board):
                     print("Player wins")
+                    break
                 else:
                     print("Computer wins")
+                    break
 
-                board[row_input][col_input] = ' '
+            board[row_input][col_input] = ' '
+            moves += 1
 
-    print("All places are full")
+    if moves == rows * columns:
+        print("No space left!")
 
 def check_ldiagonal(arr):
     ld = arr[0][0]
