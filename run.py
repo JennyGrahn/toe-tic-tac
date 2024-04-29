@@ -5,26 +5,35 @@
 # I realise was the wrong one. I copied it here, read more about it in the README file
 
 import random
-#while True:
+
 def main():
-    print("Select the board size:")
-    print("1. small: 3x3")
-    print("2. medium: 4x4")
-    print("3. large: 5x5")
-    choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large): "))
+    while True:
+        print("Select the board size:")
+        print("1. small: 3x3")
+        print("2. medium: 4x4")
+        print("3. large: 5x5")
+        choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large): "))
 
-    sizes = {1: (3, 3), 2: (4, 4), 3: (5, 5)}
-    rows, columns = sizes.get(choice, (3, 3))
+        try:
+            choice = int(choice)
+            if choice is not in [1, 2, 3]:
+                raise ValueError
+            break
+        except ValueError:
+            print("Inavlid choice. Please enter 1, 2 or 3")
+        #Remember to get the select board to print again
+        sizes = {1: (3, 3), 2: (4, 4), 3: (5, 5)}
+        rows, columns = sizes.get(choice, (3, 3))
 
-    board = [[' ' for _ in range(columns)] for _ in range(rows)]
+        board = [[' ' for _ in range(columns)] for _ in range(rows)]
     
-    print("Current board:")
-    for row in board:
-        print('|'.join(row))
-        print('-' * (len(row) * 2 - 1))
+        print("Current board:")
+        for row in board:
+            print('|'.join(row))
+            print('-' * (len(row) * 2 - 1))
 
-    moves = 0
-    while moves < rows * columns:
+        moves = 0
+        while moves < rows * columns:
             row_input = random.randint(0, rows -1)
             col_input = random.randint(0, columns -1)
 
@@ -52,8 +61,8 @@ def main():
             board[row_input][col_input] = ' '
             moves += 1
 
-    if moves == rows * columns:
-        print("No space left!")
+        if moves == rows * columns:
+            print("No space left!")
 
 def check_ldiagonal(arr):
     ld = arr[0][0]
