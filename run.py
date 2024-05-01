@@ -13,7 +13,7 @@ Select the board size:
     3. large: 5x5
 """
 
-def main():
+def get_board_size():
     sizes = {1: (3, 3), 2: (4, 4), 3: (5, 5)}
     while True:
         print(USER_OPTIONS)
@@ -21,56 +21,29 @@ def main():
             choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large):"))
             if choice not in sizes:
                 raise ValueError
-            break
+            return sizes[choice]
         except ValueError:
             print("Invalid choice. Please enter 1, 2, or 3")
 
-    rows, columns = sizes.get(choice, (3, 3))
-    board = [[' ' for _ in range(columns)] for _ in range(rows)]
-
-    print("Current board:")
+def print_board(board):
     for row in board:
         print('|'.join(row))
         print('-' * (len(row) * 2 - 1))
 
-    moves = 0
-    while moves < rows * columns:
-        row_input = random.randint(0, rows -1)
-        col_input = random.randint(0, columns -1)
-
-        if board[row_input][col_input] == ' ':
-            board[row_input][col_input] = 'X'
-
-            checkld = check_ldiagonal(board)
-            checkrd = check_rdiagonal(board)
-
-            if checkld == 0 and checkrd == 0:
-                print("Nobody wins")
-            elif checkld == 'X' or checkrd == 'X':
-                print("Player wins")
-                break
-            elif checkld == 'O' or checkrd == 'O':
-                print("Computer wins")
-                break
-            if check_rows_and_col(board):
-                print("Player wins")
-                break
-            else:
-                print("Computer wins")
-                break
-
-        board[row_input][col_input] = ' '
-        moves += 1
-
-    if moves == rows * columns:
-        print("No space left!")
-
-    # Move win_checker loop inside main function
-    win_checker = [check_ldiagonal, check_rdiagonal]
-
-    for op in win_checker:
-        if op(board):
-            print()
+def check_winner(board):
+    checkld = check_ldiagonal(board)
+    checkrd = check_rdiagonal(board)
+    check_rows = check_rows_and_col(board)
+    check_columns = check_columns(board)
+    
+    if checkld == 0 and checkrd == 0 and not check_rows and not check_columns:
+        return "Nobody wins"
+    elif checkld == 'X' or checkrd == 'X' or check_rows or check_columns:
+        return "Player wins"
+    elif checkld == 'O' or checkrd == 'O':
+        return "Computer wins"
+    else:
+        return "Computer wins"
 
 def check_ldiagonal(arr):
     ld = arr[0][0]
@@ -95,7 +68,42 @@ def check_rows_and_col(arr):
                 return True
     return False
 
+def check_columns(arr):
+    for col in range(len(arr[0])):
+        column = [row[col] for row in arr]
+        if len(set(column)) == 1 and column[0] != ' ':
+            return True
+    return False
+
+def main():
+    rows, columns = get_board_size()
+    board = [[' ' for _ in range(columns)] for _ in range(rows)]
+
+    print("Current board:")
+    print_board(board)
+
+    moves = 0
+    while moves < rows * columns:
+        row_input = random.randint(0, rows -1)
+        col_input = random.randint(0, columns -1)
+
+        if board[row_input][col_input] == ' ':
+            board[row_input][col_input] = 'X'
+
+            print(check_winner(board))
+            break
+
+        board[row_input][col_input] = ' '
+        moves += 1
+
+    if moves == rows * columns:
+        print("No space left!")
+
 if __name__ == "__main__":
     main()
+
+
+
+
 
 
