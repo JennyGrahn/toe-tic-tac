@@ -6,9 +6,24 @@
 
 import random  # Importing the random module for generating random moves.
 
+def load_message():
+    print("Welcome to Tic Tac Toe!")
+    print("Rules:")
+    print("1. The game is played on a 3x3 grid.")
+    print("2. Players take turns marking a square with their symbol (X or O).")
+    print("3. The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins.")
+    input("When you're ready to start the game, type 'start the game' and press Enter: ")
+
+    user_input = input()
+    if user_input.strip().lower() != 'start the game':
+        print("Invalid input. Exiting...")
+        return
+    
+    print("Loading Tic Tac Toe game...")
+    print("Tic Tac Toe game loaded!")
+    
+
 # Options for the user to decide the board size.
-
-
 USER_OPTIONS = """
 Select the board size:
     1. small: 3x3
@@ -180,7 +195,9 @@ def main():
         print("No space left!")
 
 if __name__ == "__main__":
+    load_message()
     main()
+    
 
 
 
