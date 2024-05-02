@@ -57,62 +57,41 @@ I want to have a fun and casual gaming experience and test my strategic thinking
 **Accessibility and User-Friendliness**:
   * The user interface is intuitive and easy to navigate, providing a pleasant gaming experience for players of all levels.
 
-
-### Strategy Plane
-
-### Site Goals**
-
-### User Stories**
-
-### Scope Plane
-
-## Features planned
-
-Got it! Here's the revised list with the addition:
-
-* Implement a maximum width of 1750px.
-* Ensure responsiveness across all pages, meaning the layout adjusts accordingly.
-* Include an "About" page that explains the purpose of this game.
-* Allow the user to choose to play on three, four, or five rows.
-* Provide a help command line for the user.
-* Enable the user to restart the game with a button.
-* Enable user gameplay against AI.
-* Add a Tic Tac Toe game.
-* Incorporate a command line for users to play on.
-
-### Structure Plane
-
-### Skeleton Plane
-
-### Surface Plane
-
-## Wireframes**
-
-### Wireframes / Site Design
-
-## Design
-
-### Color schemes
-
-## Typography
-
-## Graphics/Imagery
-
-### Design changes
-
-* I made a change to the design after creating the initial wireframe and consulting with my mentor, who clarified that a complete user interface wasn't necessary. Following that discussion, I simplified the interface and adapted it to be more terminal-based.
-
 ## Features
 
-## All Pages
+* The player can chose between three different board sizes (3x3, 4x4 and 5x5)
+* Ensure responsiveness across all pages, meaning the layout adjusts accordingly.
+* An "About" page that explains the purpose of this game.
+* A help command line for the user.
+* Enable the user to restart the game with a button.
+* Game is played on a console with a nice background.
 
-### All Pages - Features - Details & Description**
+### Future features
+To be added
 
-## Credits
+### Remaining bugs
 
-### Code
+## Project structure
+To be added
 
-### Images and text
+## Design
+To be added
+
+## Wireframes
+To be added
+
+### Color schemes
+To be added
+
+## Typography
+For this project, I've used the "Handjet" font, as I believe it perfectly captures the essence of the game, drawing inspiration from classic console aesthetics.
+Add image of font
+
+## Graphics/Imagery
+To be added
+
+### Design changes
+* I made a change to the design after creating the initial wireframe and consulting with my mentor, who clarified that a complete user interface wasn't necessary. Following that discussion, I simplified the interface and adapted it to be more terminal-based.
 
 ### README
 
