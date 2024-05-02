@@ -112,20 +112,22 @@ def print_board(board):
         print('-' * (len(row) * 2 - 1))
 
  # Checking for a winner in all possible directions.
-def check_winner(board):
-    check_ld = check_ldiagonal(board)
-    check_rd = check_rdiagonal(board)
+def check_winner(board): 
+    checkld = check_ldiagonal(board)
+    checkrd = check_rdiagonal(board)
     check_rows = check_rows_and_col(board)
     check_all_columns = check_columns(board)
+    
+    print(checkld,checkrd,check_rows,check_all_columns)
 
-    if check_ld == "X" or check_rd == "X" or check_rows or check_all_columns:
+    if checkld == " " and checkrd == " " and not check_rows and not check_all_columns:
+        return "Nobody wins"
+    elif checkld == 'X' or checkrd == 'X' or check_rows or check_all_columns:
         return "Player wins"
-    elif check_ld == "O" or check_rd == "O":
+    elif checkld == 'O' or checkrd == 'O':
         return "Computer wins"
-    elif check_ld == " " and check_rd == " " and not check_rows and not check_all_columns:
-        return "Nobody wins"
     else:
-        return "Nobody wins"
+        return "Computer wins"
     
 # Checking the left diagonal of the board for a winner.
 def check_ldiagonal(arr):
