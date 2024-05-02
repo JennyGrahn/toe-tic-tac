@@ -7,6 +7,8 @@
 import random  # Importing the random module for generating random moves.
 
 # Options for the user to decide the board size.
+
+
 USER_OPTIONS = """
 Select the board size:
     1. small: 3x3
@@ -47,7 +49,7 @@ def minimax(board, depth, max_depth, maxTurn):
         return min_value
     
 # Implementing AI move using minimax algorithm.
-def ai_move(board, max_depth):
+def ai_move(board,max_depth):
     best_move = None
     best_val = -float("inf")
 
@@ -99,13 +101,13 @@ def check_winner(board):
     check_ld = check_ldiagonal(board)
     check_rd = check_rdiagonal(board)
     check_rows = check_rows_and_col(board)
-    check_columns = check_columns(board)
+    check_all_columns = check_columns(board)
 
-    if check_ld == "X" or check_rd == "X" or check_rows or check_columns:
+    if check_ld == "X" or check_rd == "X" or check_rows or check_all_columns:
         return "Player wins"
     elif check_ld == "O" or check_rd == "O":
         return "Computer wins"
-    elif check_ld == " " and check_rd == " " and not check_rows and not check_columns:
+    elif check_ld == " " and check_rd == " " and not check_rows and not check_all_columns:
         return "Nobody wins"
     else:
         return "Nobody wins"
@@ -162,7 +164,7 @@ def main():
             board[row_input][col_input] = 'X'
 
             print(check_winner(board))
-            move +=1 
+            moves +=1 
             ai = ai_move()
             if moves == rows * columns:
                 break
@@ -179,8 +181,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 
 
 
