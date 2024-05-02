@@ -4,8 +4,9 @@
 # This code is from a prievius git hub template which 
 # I realise was the wrong one. I copied it here, read more about it in the README file
 
-import random
+import random  # Importing the random module for generating random moves.
 
+# Options for the user to decide the board size.
 USER_OPTIONS = """
 Select the board size:
     1. small: 3x3
@@ -13,6 +14,7 @@ Select the board size:
     3. large: 5x5
 """
 
+# Implementing the minimax algorithm.
 def minimax(board, depth, max_depth, maxTurn):
     if check_winner(board) == "Player wins":
         return -1
@@ -21,6 +23,7 @@ def minimax(board, depth, max_depth, maxTurn):
     elif check_winner(board) == "Nobody wins" or depth == max_depth:
         return 0
 
+    # Maximizing player's turn.
     if maxTurn:
         max_value = -float('inf')
         for i in range(len(board)):
@@ -31,6 +34,7 @@ def minimax(board, depth, max_depth, maxTurn):
                     board[i][j] = " "
                     max_value = max(max_value, minmax_val)
         return max_value
+    # Minimizing player's turn.
     else:
         min_value = float('inf')
         for i in range(len(board)):
@@ -41,7 +45,8 @@ def minimax(board, depth, max_depth, maxTurn):
                     board[i][j] = " "
                     min_value = min(min_value, minmax_val)
         return min_value
-
+    
+# Implementing AI move using minimax algorithm.
 def ai_move(board, max_depth):
     best_move = None
     best_val = -float("inf")
@@ -57,6 +62,7 @@ def ai_move(board, max_depth):
                     best_val = minmax_val
     return best_move
 
+# Allowing player to make a move.
 def players_move(board):
     while True:
         try:
@@ -69,6 +75,7 @@ def players_move(board):
         except ValueError:
             print("Invalid Input. Please enter a whole number")
 
+# Asking the user for the board size.
 def get_board_size():
     sizes = {1: (3, 3), 2: (4, 4), 3: (5, 5)}
     while True:
@@ -81,18 +88,18 @@ def get_board_size():
         except ValueError:
             print("Invalid choice. Please enter 1, 2, or 3")
 
-def print_board(board):
+# Printing the current state of the board.
+def print_board(board): 
     for row in board:
         print('|'.join(row))
         print('-' * (len(row) * 2 - 1))
 
-def check_winner(board): 
-    checkld = check_ldiagonal(board) 
-    checkrd = check_rdiagonal(board) 
-    check_rows = check_rows_and_col(board) 
-    check_all_columns = check_columns(board) 
-    
-    print(checkld,checkrd,check_rows,check_all_columns)
+ # Checking for a winner in all possible directions.
+def check_winner(board):
+    check_ld = check_ldiagonal(board)
+    check_rd = check_rdiagonal(board)
+    check_rows = check_rows_and_col(board)
+    check_columns = check_columns(board)
 
     if check_ld == "X" or check_rd == "X" or check_rows or check_columns:
         return "Player wins"
@@ -102,7 +109,8 @@ def check_winner(board):
         return "Nobody wins"
     else:
         return "Nobody wins"
-
+    
+# Checking the left diagonal of the board for a winner.
 def check_ldiagonal(arr):
     ld = arr[0][0]
     for row in range(1, len(arr)):
@@ -110,12 +118,14 @@ def check_ldiagonal(arr):
             return " "
     return ld
 
+# Checking the right diagonal of the board for a winner.
 def check_rdiagonal(arr):
     rd = arr[0][len(arr) - 1]
     for i in range(1, len(arr)):
         if rd != arr[i][len(arr) - 1 - i]:
             return " "
     return rd
+ # Checking rows and columns of the board for a winner.
 
 def check_rows_and_col(arr):
     for i in range(len(arr)):
@@ -128,6 +138,7 @@ def check_rows_and_col(arr):
             return True
     return False
 
+ # Checking columns of the board for a winner.
 def check_columns(arr):
     for col in range(len(arr[0])):
         column = [row[col] for row in arr]
@@ -135,6 +146,7 @@ def check_columns(arr):
             return True
     return False
 
+# Main function to run the game.
 def main():
     rows, columns = get_board_size()
     board = [[' ' for _ in range(columns)] for _ in range(rows)]
@@ -167,6 +179,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
