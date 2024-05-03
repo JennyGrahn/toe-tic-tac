@@ -13,7 +13,7 @@ def load_message():
     print("2. Players take turns marking a square with their symbol (X or O).")
     print("3. The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins.")
 
-    user_input = input("When you're ready to start the game, type 'start the game' and press Enter: ")
+    user_input = input("When you're ready to start the game, type 'start the game' and press Enter:\n")
     if user_input.strip().lower() != 'start the game':
         print("Invalid input. Exiting...")
     
@@ -83,8 +83,8 @@ def ai_move(board,max_depth):
 def players_move(board):
     while True:
         try:
-            row = int(input('Enter row number: '))
-            col = int(input('Enter column number: '))
+            row = int(input('Enter row number:\n'))
+            col = int(input('Enter column number:\n'))
             if 0 <= row < len(board) and 0 <= col < len(board[0]):
                 return row, col
             else:
@@ -98,7 +98,7 @@ def get_board_size():
     while True:
         print(USER_OPTIONS)
         try:
-            choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large):"))
+            choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large):\n"))
             if choice not in sizes:
                 raise ValueError
             return sizes[choice]
