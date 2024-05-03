@@ -5,20 +5,22 @@
 # I realise was the wrong one. I copied it here, read more about it in the README file
 
 import random  # Importing the random module for generating random moves.
-
+import time
 def load_message():
     print("Welcome to Tic Tac Toe!")
     print("Rules:")
-    print("1. The game is played on a 3x3 grid.")
+    print("1. The game is played on a 3x3, 4x4 and 5x5 grid.")
     print("2. Players take turns marking a square with their symbol (X or O).")
-    print("3. The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins.")
+    print("3. The first player to get three, four or five of their symbols in a row (horizontally, vertically, or diagonally) wins.")
 
-    user_input = input("When you're ready to start the game, type 'start the game' and press Enter:\n")
-    if user_input.strip().lower() != 'start the game':
-        print("Invalid input. Exiting...")
-    
-    print("Loading Tic Tac Toe game...")
-    print("Tic Tac Toe game loaded!")
+    while True:
+        user_input = input("When you're ready to start the game, type 'start the game' and press Enter: ")
+        if user_input.strip().lower() != 'start the game':
+            print("Invalid input. Exiting...")
+        else:
+            print("Loading Tic Tac Toe game...")
+            print("Tic Tac Toe game loaded!")
+            break
     
 
 # Options for the user to decide the board size.
@@ -71,11 +73,11 @@ def ai_move(board,max_depth):
             if board[i][j] == " ":
                 board[i][j] = "O"
                 minmax_val = minimax(board, 0, max_depth, False)
-                print("Val",minmax_val)
                 board[i][j] = " "
                 if minmax_val >= best_val:
                     best_move = (i, j)
                     best_val = minmax_val
+             
     return best_move
 
 
@@ -83,8 +85,8 @@ def ai_move(board,max_depth):
 def players_move(board):
     while True:
         try:
-            row = int(input('Enter row number:\n'))
-            col = int(input('Enter column number:\n'))
+            row = int(input('Enter row number: '))
+            col = int(input('Enter column number: '))
             if 0 <= row < len(board) and 0 <= col < len(board[0]):
                 return row, col
             else:
@@ -93,17 +95,6 @@ def players_move(board):
             print("Invalid Input. Please enter a whole number")
 
 # Asking the user for the board size.
-def get_board_size():
-    sizes = {1: (3, 3), 2: (4, 4), 3: (5, 5)}
-    while True:
-        print(USER_OPTIONS)
-        try:
-            choice = int(input("Enter your choice (1 for small, 2 for medium, 3 for large):\n"))
-            if choice not in sizes:
-                raise ValueError
-            return sizes[choice]
-        except ValueError:
-            print("Invalid choice. Please enter 1, 2, or 3")
 
 # Printing the current state of the board.
 def print_board(board): 
@@ -163,7 +154,7 @@ def check_columns(arr):
     return False
 # Main function to run the game.
 def main():
-    rows, columns = get_board_size()
+    rows, columns = 3,3
     board = [[' ' for _ in range(columns)] for _ in range(rows)]
 
     print("Current board:")
@@ -183,11 +174,11 @@ def main():
             if moves == rows * columns:
                 print("It's a tie")
                 break
-    
-          
+
+            print("\n Ai making move.........")
+            time.sleep(2)
+            # if the player does not wins and its not the last move then we'll let the ai play
             ai_row,ai_col = ai_move(board,8)
-            print(ai_row,ai_col)
-            print(board)
             board[ai_row][ai_col] = 'O'
             print_board(board)
             if check_winner(board) == "Computer wins":
