@@ -2,21 +2,7 @@
 
 This classic game is a simple way to test your strategic skills against an AI, also known as Computer. Can you win over Computer?
 
-## Table of contents
-
-* User Experience (UX)
-* Strategy Plane
-* Scope Plane
-* Structure Plane
-* Skeleton Plane
-* Surface Plane
-* Features
-* Technologies
-* Testing
-* Test Results & Bugs
-* Test Results & Bugs
-* Deployment
-* Credits
+## User Experience
 
 ## Project Goals
 
@@ -49,8 +35,8 @@ I want to have a fun and casual gaming experience and test my strategic thinking
 
 **Gameplay**:
 
-  * The AI opponent provides a challenge, using the Minimax algorithm to make its moves.
-  * I can see indicators of whose turn it is during the game, ensuring smooth gameplay.
+* The AI opponent provides a challenge, using the Minimax algorithm to make its moves.
+* I can see indicators of whose turn it is during the game, ensuring smooth gameplay.
 
 **Winning and Losing**:
 
@@ -66,38 +52,38 @@ I want to have a fun and casual gaming experience and test my strategic thinking
 
 * The user interface is intuitive and easy to navigate, providing a pleasant gaming experience for players of all levels.
 
-## Features
-
-* The player can chose between three different board sizes (3x3, 4x4 and 5x5)
-* Ensure responsiveness across all pages, meaning the layout adjusts accordingly.
-* An "About" page that explains the purpose of this game.
-* A help command line for the user.
-* Enable the user to restart the game with a button.
-* Game is played on a console with a nice background.
-
-### Future features
-
-To be added
-
-### Remaining bugs
-
-## Project structure
-
-To be added
-
 ## Design
-
-To be added
-
-## Wireframes
-
-## Graphics/Imagery
 
 To be added
 
 ### Design changes
 
 * I made a change to the design after creating the initial wireframe and consulting with my mentor, who clarified that a complete user interface wasn't necessary. Following that discussion, I simplified the interface and adapted it to be more terminal-based.
+
+## Features
+
+* A welcome message explaining the rules of the game.
+* The player can chose between three different board sizes (3x3, 4x4 and 5x5).
+* A help command line to play the game on.
+* An AI opponent known as "Computer" utilizing the minimax algorithm.
+
+### Future features
+
+* One ambition for the future is to add different difficulty levels for the player to select from.
+* I will also complement with different modes of the game, such as player vs player.
+* Another feature is a game interface as I think it would add to the user experience.
+
+### Open bugs
+
+To be added
+
+## Testing
+
+### PEP 8 Online Validation
+
+### Functionality testning
+
+## Credits
 
 ### README
 
