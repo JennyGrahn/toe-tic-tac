@@ -2,13 +2,29 @@
 
 This classic game is a simple way to test your strategic skills against an AI, also known as Computer. Can you win over Computer?
 
-## User Experience
-
 ## Project Goals
 
 * **Test strategic thinking**: The primary goal is for the player to test their strategic thinking against an AI opponent.
 * **Have fun**: As a game, I want it to be enjoyable for the user.
 * **User-friendliness**: Provide a user-friendly interface that is easy to understand.
+
+### Explanation of Unmet Project Goals
+
+During the course of this project, several factors contributed to the deviation from the initially set goals:
+
+**Underestimated Time and Effort**
+I underestimated the complexity of the project and the amount of time and effort required to complete it successfully. This led to challenges in meeting the milestones and objectives within the timeframe.
+
+**Lack of Proper Information Review**
+Prior to planning the project, I did not thoroughly review all the relevant information and requirements. As a result it lead to misunderstandings and unmet expectations.
+
+**Deployment**
+Due to time constraints and me not being prepared enough, I was unable to deploy the project as originally intended.
+
+**Commitment to Future Adjustments**
+While the project goals were not fully met in the current iteration, I am committed to making necessary adjustments and improvements once I have received the feedback.
+
+I understand that the incomplete fulfillment of project goals may affect the overall assessment of the project. Despite this, I am committed to learning from this experience and be better prepared for my next project.
 
 ## Target Audience
 
@@ -79,9 +95,15 @@ To be added
 
 ## Testing
 
+To be added
+
 ### PEP 8 Online Validation
 
+To be added
+
 ### Functionality testning
+
+To be added
 
 ## Credits
 
@@ -90,37 +112,6 @@ To be added
 * The structure of this README was drawn from emmahewsons [SWIMMÔN Wild Swimming Events Website](https://github.com/emmahewson/mp3-swimmon?tab=readme-ov-file#Credits) and served as a reference my README.
 * The structure of this README was drawn from randeem-yads project [Commandline TaskTracker](https://github.com/raneem-yad/project-portfolio-3)
 
-### Acknowledgements
+## Acknowledgements
 
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+My sincere gratitude to my mentors for their invaluable guidance and support throughout the planning and execution of this project. My mentor Sandeep for the guidance regarding the planning of the project. And to Mahnoor for patiently explaining the Minimax algorithm to me.

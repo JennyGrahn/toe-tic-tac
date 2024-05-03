@@ -177,7 +177,6 @@ def main():
 
             print("\n Ai making move.........")
             time.sleep(2)
-            # if the player does not wins and its not the last move then we'll let the ai play
             ai_row,ai_col = ai_move(board,8)
             board[ai_row][ai_col] = 'O'
             print_board(board)
