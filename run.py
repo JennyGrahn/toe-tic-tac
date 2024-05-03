@@ -183,7 +183,8 @@ def main():
             if moves == rows * columns:
                 print("It's a tie")
                 break
-           
+    
+          
             ai_row,ai_col = ai_move(board,8)
             print(ai_row,ai_col)
             print(board)
@@ -205,4 +206,3 @@ def main():
 if __name__ == "__main__":
     load_message()
     main()
-   
